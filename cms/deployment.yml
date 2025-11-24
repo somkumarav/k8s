@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cms-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cms-web
+  template:
+    metadata:
+      labels:
+        app: cms-web
+    spec:
+      containers:
+        - name: cms-web
+          image: somkumarva/cms-web
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: env-file
+              readOnly: true
+              mountPath: /usr/src/app/apps/web/.env
+              subPath: .env
+      volumes:
+        - name: env-file
+          secret:
+            secretName: cms-web-secret
