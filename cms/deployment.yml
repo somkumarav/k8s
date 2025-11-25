@@ -14,15 +14,22 @@ spec:
     spec:
       containers:
         - name: cms-web
-          image: somkumarva/cms-web:2
+          image: somkumarva/cms-web:3
           ports:
             - containerPort: 3000
           volumeMounts:
-            - name: env-file
+            - name: web-env-file
               readOnly: true
               mountPath: /usr/src/app/apps/web/.env
               subPath: .env
+            - name: db-env-file
+              readOnly: true
+              mountPath: /usr/src/app/packages/db/.env
+              subPath: .env
       volumes:
-        - name: env-file
+        - name: web-env-file
           secret:
             secretName: cms-web-secret
+        - name: db-env-file
+          secret:
+            secretName: cms-db-secret
