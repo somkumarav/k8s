@@ -1,0 +1,22 @@
+architecture: standalone
+
+auth:
+  enabled: true
+  password: "pass"   # put a real password here
+
+primary:
+  persistence:
+    enabled: true
+    existingClaim: redis-data    # <-- this is the PVC we created
+
+  nodeSelector:
+    kubernetes.io/hostname: pool-13krotjim-syhw0  # pin Redis to same node as PV
+
+# Optional: small resources for dev
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

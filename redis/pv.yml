@@ -1,0 +1,35 @@
+# redis-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-local-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-postgres   # reuse existing SC
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /var/lib/redis-data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - pool-13krotjim-syhw0   # same node you created the folder on
+---
+# redis-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-postgres
+  resources:
+    requests:
+      storage: 5Gi
