@@ -10,3 +10,16 @@ spec:
       port: 80
       targetPort: 3000
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cms-worker-service
+spec:
+  selector:
+    app: cms-worker
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP

@@ -33,3 +33,32 @@ spec:
         - name: db-env-file
           secret:
             secretName: cms-db-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cms-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cms-worker
+  template:
+    metadata:
+      labels:
+        app: cms-worker
+    spec:
+      containers:
+        - name: cms-worker
+          image: somkumarva/cms-worker:3
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: worker-env-file
+              readOnly: true
+              mountPath: /usr/src/app/apps/worker/.env
+              subPath: .env
+      volumes:
+        - name: worker-env-file
+          secret:
+            secretName: cms-worker-secret
