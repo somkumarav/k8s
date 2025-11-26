@@ -1,0 +1,22 @@
+global:
+  postgresql:
+    auth:
+      username: postgres
+      password: pass
+      database: cms
+primary:
+  persistence:
+    enabled: true
+    existingClaim: pg-data
+  nodeSelector:
+    kubernetes.io/hostname: pool-13krotjim-syhw0 
+  podSecurityContext:
+    enabled: true
+    fsGroup: 1001
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 1001
+
+service:
+  type: NodePort
+  port: 5432
