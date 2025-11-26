@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
         - name: cms-worker
-          image: somkumarva/cms-worker:3
+          image: somkumarva/cms-worker:4
           ports:
             - containerPort: 3000
           volumeMounts:
