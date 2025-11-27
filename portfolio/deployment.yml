@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: somkumarva/portfolio:bd4c40d540bfe17aabc3307f11616c4141ddeeea
+          image: somkumarva/portfolio:d9a361f4e55f9f5225de9927cd8f013436087051
           ports:
             - containerPort: 3000
