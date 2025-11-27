@@ -4,6 +4,7 @@ metadata:
   name: cms-web
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: cms-web
@@ -40,6 +41,7 @@ metadata:
   name: cms-worker
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: cms-worker
