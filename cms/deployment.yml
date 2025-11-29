@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cms-web
-          image: somkumarva/cms-web:cb4b62d1ed236d039935dcf957287f189a14cc4c
+          image: somkumarva/cms-web:51bfd6fa0944fadf148aaee1c10823a597404bbf
           ports:
             - containerPort: 3000
           volumeMounts:
@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: cms-worker
-          image: somkumarva/cms-worker:cb4b62d1ed236d039935dcf957287f189a14cc4c
+          image: somkumarva/cms-worker:51bfd6fa0944fadf148aaee1c10823a597404bbf
           ports:
             - containerPort: 3000
           volumeMounts:
