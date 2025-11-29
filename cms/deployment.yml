@@ -60,14 +60,7 @@ spec:
               readOnly: true
               mountPath: /usr/src/app/apps/worker/.env
               subPath: .env
-            - name: redis-env-file
-              readOnly: true
-              mountPath: /usr/src/app/packages/queue/.env
-              subPath: .env
       volumes:
         - name: worker-env-file
           secret:
             secretName: cms-worker-secret
-        - name: redis-env-file
-          secret:
-            secretName: cms-redis-secret
