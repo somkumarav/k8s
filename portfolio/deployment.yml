@@ -13,8 +13,18 @@ spec:
       labels:
         app: portfolio
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
       containers:
         - name: portfolio
           image: somkumarva/portfolio:94ab0b311fc1ceb6bd925bde55df59b06aa96cfc
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 3000

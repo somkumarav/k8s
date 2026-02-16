@@ -8,8 +8,6 @@ primary:
   persistence:
     enabled: true
     existingClaim: pg-data
-  nodeSelector:
-    kubernetes.io/hostname: pool-13krotjim-syhw0 
   podSecurityContext:
     enabled: true
     fsGroup: 1001
@@ -18,5 +16,5 @@ primary:
     runAsUser: 1001
 
 service:
-  type: NodePort
+  type: ClusterIp
   port: 5432

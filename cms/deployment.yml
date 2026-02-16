@@ -13,11 +13,21 @@ spec:
       labels:
         app: cms-web
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
       containers:
         - name: cms-web
           image: somkumarva/cms-web:eac32ec063fccabd25966a142d5602b030d33717
           ports:
             - containerPort: 3000
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - name: web-env-file
               readOnly: true
@@ -50,9 +60,15 @@ spec:
       labels:
         app: cms-worker
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
       containers:
         - name: cms-worker
           image: somkumarva/cms-worker:eac32ec063fccabd25966a142d5602b030d33717
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: 3000
           volumeMounts:
