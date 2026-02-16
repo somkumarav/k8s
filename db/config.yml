@@ -16,5 +16,5 @@ primary:
     runAsUser: 1001
 
 service:
-  type: ClusterIp
+  type: NodePort
   port: 5432
