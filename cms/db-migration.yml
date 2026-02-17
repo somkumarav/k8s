@@ -12,7 +12,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: somkumarva/cms-web:cae501723bba93e9ad666ced7d7dd2aa9b343f70
+          image: somkumarva/cms-web:f3a039d2545f9cd9230e6311ee8a31ce54912abf
           command: ["pnpm", "db:migrate"]
           envFrom:
             - secretRef:
