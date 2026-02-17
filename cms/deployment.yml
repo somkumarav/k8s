@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cms-web
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -50,7 +50,7 @@ kind: Deployment
 metadata:
   name: cms-worker
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
