@@ -19,7 +19,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: cms-web
-          image: somkumarva/cms-web:61b196569d5cb5cddd63e8604d952fcc7efc19a2
+          image: somkumarva/cms-web:90f40c41b2a552e55934af6d3ed767c2f8a85a87
           ports:
             - containerPort: 3000
           securityContext:
@@ -65,7 +65,7 @@ spec:
         runAsUser: 1000
       containers:
         - name: cms-worker
-          image: somkumarva/cms-worker:61b196569d5cb5cddd63e8604d952fcc7efc19a2
+          image: somkumarva/cms-worker:90f40c41b2a552e55934af6d3ed767c2f8a85a87
           securityContext:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
