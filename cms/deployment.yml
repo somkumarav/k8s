@@ -60,15 +60,9 @@ spec:
       labels:
         app: cms-worker
     spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
         - name: cms-worker
           image: somkumarva/cms-worker:c4267a954aaf39cf0746539ece686316a33af478
-          securityContext:
-            readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
           ports:
             - containerPort: 3000
           volumeMounts:
