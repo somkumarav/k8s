@@ -19,7 +19,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: cms-web
-          image: somkumarva/cms-web:48a019b2d361cb7909e4df620356a5949641008e
+          image: somkumarva/cms-web:db173d7c2071548fd852127efb5db9ab7c2f3ec6
           ports:
             - containerPort: 3000
           securityContext:
@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
         - name: cms-worker
-          image: somkumarva/cms-worker:48a019b2d361cb7909e4df620356a5949641008e
+          image: somkumarva/cms-worker:db173d7c2071548fd852127efb5db9ab7c2f3ec6
           ports:
             - containerPort: 3000
           volumeMounts:
