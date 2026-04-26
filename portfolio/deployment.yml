@@ -19,7 +19,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: portfolio
-          image: somkumarva/portfolio:94ab0b311fc1ceb6bd925bde55df59b06aa96cfc
+          image: somkumarva/portfolio:af74f27d0ba4b0a470890c93e64238baf99b9c19
           securityContext:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
